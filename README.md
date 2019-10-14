@@ -1,13 +1,13 @@
 # Messages
 Створити сервіс коротких (404 символи) заміток (із тегами) для кожного користувача із можливістю перегляду, редагування і видалення, а також надавати доступ редагувати замітку іншими користувачами (до 5 користувачів). Також надати можливість бачити статистику користувача, скільки повідомлень, коли редаговані і ким. .
 
-## Version: 1.0
+#### Version: 1.0
 
 **Contact information:**  
 Oleksii Havryshkiv  
 wogy.wogy14@gmail.com  
 
-### /users
+## /users
 
 #### GET
 ##### Summary:
@@ -41,7 +41,7 @@ wogy.wogy14@gmail.com
 | 401 | Unauthorized |  |
 | 406 | Not Acceptable |  |
 
-### /users/{id}
+## /users/{id}
 
 #### GET
 ##### Summary:
@@ -105,7 +105,7 @@ wogy.wogy14@gmail.com
 | 404 | Not Found |
 | 406 | Not Acceptable |
 
-### /messages
+## /messages
 
 #### GET
 ##### Summary:
@@ -139,7 +139,7 @@ wogy.wogy14@gmail.com
 | 401 | Unauthorized |  |
 | 406 | Not Acceptable |  |
 
-### /messages/{id}
+## /messages/{id}
 
 #### GET
 ##### Summary:
@@ -203,10 +203,10 @@ wogy.wogy14@gmail.com
 | 404 | Not Found |
 | 406 | Not Acceptable |
 
-### Models
+## Models
 
 
-#### User
+### User
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
@@ -214,7 +214,7 @@ wogy.wogy14@gmail.com
 | name | string |  | No |
 | count_messages | long |  | No |
 
-#### Message
+### Message
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
