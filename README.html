@@ -1,796 +1,646 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Messages</title>
-    <style type="text/css">
-      body {
-      	font-family: Trebuchet MS, sans-serif;
-      	font-size: 15px;
-      	color: #444;
-      	margin-right: 24px;
-      }
-      
-      h1	{
-      	font-size: 25px;
-      }
-      h2	{
-      	font-size: 20px;
-      }
-      h3	{
-      	font-size: 16px;
-      	font-weight: bold;
-      }
-      hr	{
-      	height: 1px;
-      	border: 0;
-      	color: #ddd;
-      	background-color: #ddd;
-      }
-      
-      .app-desc {
-        clear: both;
-        margin-left: 20px;
-      }
-      .param-name {
-        width: 100%;
-      }
-      .license-info {
-        margin-left: 20px;
-      }
-      
-      .license-url {
-        margin-left: 20px;
-      }
-      
-      .model {
-        margin: 0 0 0px 20px;
-      }
-      
-      .method {
-        margin-left: 20px;
-      }
-      
-      .method-notes	{
-      	margin: 10px 0 20px 0;
-      	font-size: 90%;
-      	color: #555;
-      }
-      
-      pre {
-        padding: 10px;
-        margin-bottom: 2px;
-      }
-      
-      .http-method {
-       text-transform: uppercase;
-      }
-      
-      pre.get {
-        background-color: #0f6ab4;
-      }
-      
-      pre.post {
-        background-color: #10a54a;
-      }
-      
-      pre.put {
-        background-color: #c5862b;
-      }
-      
-      pre.delete {
-        background-color: #a41e22;
-      }
-      
-      .huge	{
-      	color: #fff;
-      }
-      
-      pre.example {
-        background-color: #f3f3f3;
-        padding: 10px;
-        border: 1px solid #ddd;
-      }
-      
-      code {
-        white-space: pre;
-      }
-      
-      .nickname {
-        font-weight: bold;
-      }
-      
-      .method-path {
-        font-size: 1.5em;
-        background-color: #0f6ab4;
-      }
-      
-      .up {
-        float:right;
-      }
-      
-      .parameter {
-        width: 500px;
-      }
-      
-      .param {
-        width: 500px;
-        padding: 10px 0 0 20px;
-        font-weight: bold;
-      }
-      
-      .param-desc {
-        width: 700px;
-        padding: 0 0 0 20px;
-        color: #777;
-      }
-      
-      .param-type {
-        font-style: italic;
-      }
-      
-      .param-enum-header {
-      width: 700px;
-      padding: 0 0 0 60px;
-      color: #777;
-      font-weight: bold;
-      }
-      
-      .param-enum {
-      width: 700px;
-      padding: 0 0 0 80px;
-      color: #777;
-      font-style: italic;
-      }
-      
-      .field-label {
-        padding: 0;
-        margin: 0;
-        clear: both;
-      }
-      
-      .field-items	{
-      	padding: 0 0 15px 0;
-      	margin-bottom: 15px;
-      }
-      
-      .return-type {
-        clear: both;
-        padding-bottom: 10px;
-      }
-      
-      .param-header {
-        font-weight: bold;
-      }
-      
-      .method-tags {
-        text-align: right;
-      }
-      
-      .method-tag {
-        background: none repeat scroll 0% 0% #24A600;
-        border-radius: 3px;
-        padding: 2px 10px;
-        margin: 2px;
-        color: #FFF;
-        display: inline-block;
-        text-decoration: none;
-      }
-    </style>
-  </head>
-  <body>
-  <h1>Messages</h1>
-    <div class="app-desc">Створити сервіс коротких (404 символи) заміток (із тегами) для кожного користувача із можливістю перегляду, редагування і видалення, а також надавати доступ редагувати замітку іншими користувачами (до 5 користувачів). Також надати можливість бачити статистику користувача, скільки повідомлень, коли редаговані і ким. .</div>
-    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
-    <div class="app-desc">Contact Info: <a href="wogy.wogy14@gmail.com">wogy.wogy14@gmail.com</a></div>
-    <div class="app-desc">Version: 1.0</div>
-    <div class="app-desc">BasePath:/api/v1.0/</div>
-    <div class="license-info">All rights reserved</div>
-    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
-  <h2>Access</h2>
+Messages
+========
 
-  <h2><a name="__Methods">Methods</a></h2>
-  [ Jump to <a href="#__Models">Models</a> ]
+Створити сервіс коротких (404 символи) заміток (із тегами) для кожного
+користувача із можливістю перегляду, редагування і видалення, а також
+надавати доступ редагувати замітку іншими користувачами (до 5
+користувачів). Також надати можливість бачити статистику користувача,
+скільки повідомлень, коли редаговані і ким. .
 
-  <h3>Table of Contents </h3>
-  <div class="method-summary"></div>
-  <h4><a href="#Messages">Messages</a></h4>
-  <ul>
-  <li><a href="#messagesGet"><code><span class="http-method">get</span> /messages</code></a></li>
-  <li><a href="#messagesIdDelete"><code><span class="http-method">delete</span> /messages/{id}</code></a></li>
-  <li><a href="#messagesIdGet"><code><span class="http-method">get</span> /messages/{id}</code></a></li>
-  <li><a href="#messagesIdPut"><code><span class="http-method">put</span> /messages/{id}</code></a></li>
-  <li><a href="#messagesPost"><code><span class="http-method">post</span> /messages</code></a></li>
-  </ul>
-  <h4><a href="#Users">Users</a></h4>
-  <ul>
-  <li><a href="#usersGet"><code><span class="http-method">get</span> /users</code></a></li>
-  <li><a href="#usersIdDelete"><code><span class="http-method">delete</span> /users/{id}</code></a></li>
-  <li><a href="#usersIdGet"><code><span class="http-method">get</span> /users/{id}</code></a></li>
-  <li><a href="#usersIdPut"><code><span class="http-method">put</span> /users/{id}</code></a></li>
-  <li><a href="#usersPost"><code><span class="http-method">post</span> /users</code></a></li>
-  </ul>
+More information: [https://helloreverb.com](https://helloreverb.com)
 
-  <h1><a name="Messages">Messages</a></h1>
-  <div class="method"><a name="messagesGet"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /messages</code></pre></div>
-    <div class="method-summary">Отримання повідомлень (<span class="nickname">messagesGet</span>)</div>
-    <div class="method-notes"></div>
+Contact Info: [wogy.wogy14@gmail.com](wogy.wogy14@gmail.com)
 
+Version: 1.0
 
+BasePath:/api/v1.0/
 
+All rights reserved
 
+http://apache.org/licenses/LICENSE-2.0.html
 
+Access
+------
 
+Methods
+-------
 
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#Message">Message</a>
-      
-    </div>
+[ Jump to [Models](#__Models) ]
 
-    <!--Todo: process Response Object and its headers, schema, examples -->
+### Table of Contents
 
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
+#### [Messages](#Messages)
+
+-   [`get /messages`](#messagesGet)
+-   [`delete /messages/{id}`](#messagesIdDelete)
+-   [`get /messages/{id}`](#messagesIdGet)
+-   [`put /messages/{id}`](#messagesIdPut)
+-   [`post /messages`](#messagesPost)
+
+#### [Users](#Users)
+
+-   [`get /users`](#usersGet)
+-   [`delete /users/{id}`](#usersIdDelete)
+-   [`get /users/{id}`](#usersIdGet)
+-   [`put /users/{id}`](#usersIdPut)
+-   [`post /users`](#usersPost)
+
+Messages
+========
+
+[Up](#__Methods)
+
+``` {.get}
+get /messages
+```
+
+Отримання повідомлень (messagesGet)
+
+### Return type {.field-label}
+
+[Message](#Message)
+
+### Example data {.field-label}
+
+Content-Type: application/json
+
+``` {.example}
+{
   "date" : "2000-01-23T04:56:07.000+00:00",
   "creator_id" : 6,
   "id" : 0,
   "text" : "text",
   "tags" : "tags"
-}</code></pre>
+}
+```
 
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+### Produces {.field-label}
 
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Об&#x27;єкт повідомлення
-        <a href="#Message">Message</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="messagesIdDelete"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /messages/{id}</code></pre></div>
-    <div class="method-summary">Видалення повідомлення (<span class="nickname">messagesIdDelete</span>)</div>
-    <div class="method-notes"></div>
+This API call produces the following media types according to the Accept
+request header; the media type will be conveyed by the Content-Type
+response header.
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; унікальний ідентифікатор </div>    </div>  <!-- field-items -->
+-   `application/json`
 
+### Responses {.field-label}
 
+#### 200 {.field-label}
 
-    <h3 class="field-label">Request headers</h3>
-    <div class="field-items">
-    </div>  <!-- field-items -->
+Об'єкт повідомлення [Message](#Message)
 
+* * * * *
 
+[Up](#__Methods)
 
+``` {.delete}
+delete /messages/{id}
+```
 
-    <!--Todo: process Response Object and its headers, schema, examples -->
+Видалення повідомлення (messagesIdDelete)
 
+### Path parameters {.field-label}
 
+id (required)
 
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Успішне видалення
-        <a href="#"></a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#"></a>
-    <h4 class="field-label">404</h4>
-    Not Found
-        <a href="#"></a>
-    <h4 class="field-label">406</h4>
-    Not Acceptable
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="messagesIdGet"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /messages/{id}</code></pre></div>
-    <div class="method-summary">Отримання даних про повідомлення (<span class="nickname">messagesIdGet</span>)</div>
-    <div class="method-notes"></div>
+Path Parameter — унікальний ідентифікатор
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; унікальний ідентифікатор </div>    </div>  <!-- field-items -->
+### Request headers {.field-label}
 
+### Responses {.field-label}
 
+#### 200 {.field-label}
 
+Успішне видалення [](#)
 
+#### 401 {.field-label}
 
+Unauthorized [](#)
 
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#Message">Message</a>
-      
-    </div>
+#### 404 {.field-label}
 
-    <!--Todo: process Response Object and its headers, schema, examples -->
+Not Found [](#)
 
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
+#### 406 {.field-label}
+
+Not Acceptable [](#)
+
+* * * * *
+
+[Up](#__Methods)
+
+``` {.get}
+get /messages/{id}
+```
+
+Отримання даних про повідомлення (messagesIdGet)
+
+### Path parameters {.field-label}
+
+id (required)
+
+Path Parameter — унікальний ідентифікатор
+
+### Return type {.field-label}
+
+[Message](#Message)
+
+### Example data {.field-label}
+
+Content-Type: application/json
+
+``` {.example}
+{
   "date" : "2000-01-23T04:56:07.000+00:00",
   "creator_id" : 6,
   "id" : 0,
   "text" : "text",
   "tags" : "tags"
-}</code></pre>
+}
+```
 
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+### Produces {.field-label}
 
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Об&#x27;єкт повідомлення
-        <a href="#Message">Message</a>
-    <h4 class="field-label">404</h4>
-    Not Found
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="messagesIdPut"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="put"><code class="huge"><span class="http-method">put</span> /messages/{id}</code></pre></div>
-    <div class="method-summary">Оновлення даних (<span class="nickname">messagesIdPut</span>)</div>
-    <div class="method-notes"></div>
+This API call produces the following media types according to the Accept
+request header; the media type will be conveyed by the Content-Type
+response header.
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; унікальний ідентифікатор </div>    </div>  <!-- field-items -->
+-   `application/json`
 
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+### Responses {.field-label}
 
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">body <a href="#Message">Message</a> (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Об&#x27;єкт повідомлення </div>
-                </div>  <!-- field-items -->
+#### 200 {.field-label}
 
-    <h3 class="field-label">Request headers</h3>
-    <div class="field-items">
-    </div>  <!-- field-items -->
+Об'єкт повідомлення [Message](#Message)
 
+#### 404 {.field-label}
 
+Not Found [](#)
 
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#Message">Message</a>
-      
-    </div>
+* * * * *
 
-    <!--Todo: process Response Object and its headers, schema, examples -->
+[Up](#__Methods)
 
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
+``` {.put}
+put /messages/{id}
+```
+
+Оновлення даних (messagesIdPut)
+
+### Path parameters {.field-label}
+
+id (required)
+
+Path Parameter — унікальний ідентифікатор
+
+### Consumes {.field-label}
+
+This API call consumes the following media types via the Content-Type
+request header:
+
+-   `application/json`
+
+### Request body {.field-label}
+
+body [Message](#Message) (required)
+
+Body Parameter — Об'єкт повідомлення
+
+### Request headers {.field-label}
+
+### Return type {.field-label}
+
+[Message](#Message)
+
+### Example data {.field-label}
+
+Content-Type: application/json
+
+``` {.example}
+{
   "date" : "2000-01-23T04:56:07.000+00:00",
   "creator_id" : 6,
   "id" : 0,
   "text" : "text",
   "tags" : "tags"
-}</code></pre>
+}
+```
 
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+### Produces {.field-label}
 
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Об&#x27;єкт повідомлення
-        <a href="#Message">Message</a>
-    <h4 class="field-label">400</h4>
-    Bad data
-        <a href="#"></a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#"></a>
-    <h4 class="field-label">404</h4>
-    Not Found
-        <a href="#"></a>
-    <h4 class="field-label">406</h4>
-    Not Acceptable
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="messagesPost"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /messages</code></pre></div>
-    <div class="method-summary">Створення нового повідомлення (<span class="nickname">messagesPost</span>)</div>
-    <div class="method-notes"></div>
+This API call produces the following media types according to the Accept
+request header; the media type will be conveyed by the Content-Type
+response header.
 
+-   `application/json`
 
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+### Responses {.field-label}
 
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">body <a href="#Message">Message</a> (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Об&#x27;єкт повідомлення </div>
-                </div>  <!-- field-items -->
+#### 200 {.field-label}
 
-    <h3 class="field-label">Request headers</h3>
-    <div class="field-items">
-    </div>  <!-- field-items -->
+Об'єкт повідомлення [Message](#Message)
 
+#### 400 {.field-label}
 
+Bad data [](#)
 
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#Message">Message</a>
-      
-    </div>
+#### 401 {.field-label}
 
-    <!--Todo: process Response Object and its headers, schema, examples -->
+Unauthorized [](#)
 
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
+#### 404 {.field-label}
+
+Not Found [](#)
+
+#### 406 {.field-label}
+
+Not Acceptable [](#)
+
+* * * * *
+
+[Up](#__Methods)
+
+``` {.post}
+post /messages
+```
+
+Створення нового повідомлення (messagesPost)
+
+### Consumes {.field-label}
+
+This API call consumes the following media types via the Content-Type
+request header:
+
+-   `application/json`
+
+### Request body {.field-label}
+
+body [Message](#Message) (required)
+
+Body Parameter — Об'єкт повідомлення
+
+### Request headers {.field-label}
+
+### Return type {.field-label}
+
+[Message](#Message)
+
+### Example data {.field-label}
+
+Content-Type: application/json
+
+``` {.example}
+{
   "date" : "2000-01-23T04:56:07.000+00:00",
   "creator_id" : 6,
   "id" : 0,
   "text" : "text",
   "tags" : "tags"
-}</code></pre>
+}
+```
 
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+### Produces {.field-label}
 
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Об&#x27;єкт повідомлення
-        <a href="#Message">Message</a>
-    <h4 class="field-label">400</h4>
-    Bad data
-        <a href="#"></a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#"></a>
-    <h4 class="field-label">406</h4>
-    Not Acceptable
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <h1><a name="Users">Users</a></h1>
-  <div class="method"><a name="usersGet"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /users</code></pre></div>
-    <div class="method-summary">Отримання даних про користувачів (<span class="nickname">usersGet</span>)</div>
-    <div class="method-notes"></div>
+This API call produces the following media types according to the Accept
+request header; the media type will be conveyed by the Content-Type
+response header.
 
+-   `application/json`
 
+### Responses {.field-label}
 
+#### 200 {.field-label}
 
+Об'єкт повідомлення [Message](#Message)
 
+#### 400 {.field-label}
 
+Bad data [](#)
 
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#User">User</a>
-      
-    </div>
+#### 401 {.field-label}
 
-    <!--Todo: process Response Object and its headers, schema, examples -->
+Unauthorized [](#)
 
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
+#### 406 {.field-label}
+
+Not Acceptable [](#)
+
+* * * * *
+
+Users
+=====
+
+[Up](#__Methods)
+
+``` {.get}
+get /users
+```
+
+Отримання даних про користувачів (usersGet)
+
+### Return type {.field-label}
+
+[User](#User)
+
+### Example data {.field-label}
+
+Content-Type: application/json
+
+``` {.example}
+{
   "count_messages" : 6,
   "name" : "name",
   "id" : 0
-}</code></pre>
+}
+```
 
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+### Produces {.field-label}
 
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Об&#x27;єкт користувача
-        <a href="#User">User</a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="usersIdDelete"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /users/{id}</code></pre></div>
-    <div class="method-summary">Видалення користувача (<span class="nickname">usersIdDelete</span>)</div>
-    <div class="method-notes"></div>
+This API call produces the following media types according to the Accept
+request header; the media type will be conveyed by the Content-Type
+response header.
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; унікальний ідентифікатор </div>    </div>  <!-- field-items -->
+-   `application/json`
 
+### Responses {.field-label}
 
+#### 200 {.field-label}
 
-    <h3 class="field-label">Request headers</h3>
-    <div class="field-items">
-    </div>  <!-- field-items -->
+Об'єкт користувача [User](#User)
 
+* * * * *
 
+[Up](#__Methods)
 
+``` {.delete}
+delete /users/{id}
+```
 
-    <!--Todo: process Response Object and its headers, schema, examples -->
+Видалення користувача (usersIdDelete)
 
+### Path parameters {.field-label}
 
+id (required)
 
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Успішне видалення
-        <a href="#"></a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#"></a>
-    <h4 class="field-label">404</h4>
-    Not Found
-        <a href="#"></a>
-    <h4 class="field-label">406</h4>
-    Not Acceptable
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="usersIdGet"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /users/{id}</code></pre></div>
-    <div class="method-summary">Отримання даних про користувача (<span class="nickname">usersIdGet</span>)</div>
-    <div class="method-notes"></div>
+Path Parameter — унікальний ідентифікатор
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; унікальний ідентифікатор </div>    </div>  <!-- field-items -->
+### Request headers {.field-label}
 
+### Responses {.field-label}
 
+#### 200 {.field-label}
 
+Успішне видалення [](#)
 
+#### 401 {.field-label}
 
+Unauthorized [](#)
 
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#User">User</a>
-      
-    </div>
+#### 404 {.field-label}
 
-    <!--Todo: process Response Object and its headers, schema, examples -->
+Not Found [](#)
 
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
+#### 406 {.field-label}
+
+Not Acceptable [](#)
+
+* * * * *
+
+[Up](#__Methods)
+
+``` {.get}
+get /users/{id}
+```
+
+Отримання даних про користувача (usersIdGet)
+
+### Path parameters {.field-label}
+
+id (required)
+
+Path Parameter — унікальний ідентифікатор
+
+### Return type {.field-label}
+
+[User](#User)
+
+### Example data {.field-label}
+
+Content-Type: application/json
+
+``` {.example}
+{
   "count_messages" : 6,
   "name" : "name",
   "id" : 0
-}</code></pre>
+}
+```
 
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+### Produces {.field-label}
 
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Об&#x27;єкт користувача
-        <a href="#User">User</a>
-    <h4 class="field-label">404</h4>
-    Not Found
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="usersIdPut"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="put"><code class="huge"><span class="http-method">put</span> /users/{id}</code></pre></div>
-    <div class="method-summary">Оновлення даних (<span class="nickname">usersIdPut</span>)</div>
-    <div class="method-notes"></div>
+This API call produces the following media types according to the Accept
+request header; the media type will be conveyed by the Content-Type
+response header.
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">id (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; унікальний ідентифікатор </div>    </div>  <!-- field-items -->
+-   `application/json`
 
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+### Responses {.field-label}
 
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">body <a href="#User">User</a> (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Об&#x27;єкт користувача </div>
-                </div>  <!-- field-items -->
+#### 200 {.field-label}
 
-    <h3 class="field-label">Request headers</h3>
-    <div class="field-items">
-    </div>  <!-- field-items -->
+Об'єкт користувача [User](#User)
 
+#### 404 {.field-label}
 
+Not Found [](#)
 
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#User">User</a>
-      
-    </div>
+* * * * *
 
-    <!--Todo: process Response Object and its headers, schema, examples -->
+[Up](#__Methods)
 
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
+``` {.put}
+put /users/{id}
+```
+
+Оновлення даних (usersIdPut)
+
+### Path parameters {.field-label}
+
+id (required)
+
+Path Parameter — унікальний ідентифікатор
+
+### Consumes {.field-label}
+
+This API call consumes the following media types via the Content-Type
+request header:
+
+-   `application/json`
+
+### Request body {.field-label}
+
+body [User](#User) (required)
+
+Body Parameter — Об'єкт користувача
+
+### Request headers {.field-label}
+
+### Return type {.field-label}
+
+[User](#User)
+
+### Example data {.field-label}
+
+Content-Type: application/json
+
+``` {.example}
+{
   "count_messages" : 6,
   "name" : "name",
   "id" : 0
-}</code></pre>
+}
+```
 
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+### Produces {.field-label}
 
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Об&#x27;єкт користувача
-        <a href="#User">User</a>
-    <h4 class="field-label">400</h4>
-    Bad data
-        <a href="#"></a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#"></a>
-    <h4 class="field-label">404</h4>
-    Not Found
-        <a href="#"></a>
-    <h4 class="field-label">406</h4>
-    Not Acceptable
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="usersPost"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /users</code></pre></div>
-    <div class="method-summary">Створення нового користувача (<span class="nickname">usersPost</span>)</div>
-    <div class="method-notes"></div>
+This API call produces the following media types according to the Accept
+request header; the media type will be conveyed by the Content-Type
+response header.
 
+-   `application/json`
 
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+### Responses {.field-label}
 
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">body <a href="#User">User</a> (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Об&#x27;єкт користувача </div>
-                </div>  <!-- field-items -->
+#### 200 {.field-label}
 
-    <h3 class="field-label">Request headers</h3>
-    <div class="field-items">
-    </div>  <!-- field-items -->
+Об'єкт користувача [User](#User)
 
+#### 400 {.field-label}
 
+Bad data [](#)
 
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#User">User</a>
-      
-    </div>
+#### 401 {.field-label}
 
-    <!--Todo: process Response Object and its headers, schema, examples -->
+Unauthorized [](#)
 
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
+#### 404 {.field-label}
+
+Not Found [](#)
+
+#### 406 {.field-label}
+
+Not Acceptable [](#)
+
+* * * * *
+
+[Up](#__Methods)
+
+``` {.post}
+post /users
+```
+
+Створення нового користувача (usersPost)
+
+### Consumes {.field-label}
+
+This API call consumes the following media types via the Content-Type
+request header:
+
+-   `application/json`
+
+### Request body {.field-label}
+
+body [User](#User) (required)
+
+Body Parameter — Об'єкт користувача
+
+### Request headers {.field-label}
+
+### Return type {.field-label}
+
+[User](#User)
+
+### Example data {.field-label}
+
+Content-Type: application/json
+
+``` {.example}
+{
   "count_messages" : 6,
   "name" : "name",
   "id" : 0
-}</code></pre>
+}
+```
 
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
+### Produces {.field-label}
 
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Об&#x27;єкт користувача
-        <a href="#User">User</a>
-    <h4 class="field-label">400</h4>
-    Bad data
-        <a href="#"></a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#"></a>
-    <h4 class="field-label">406</h4>
-    Not Acceptable
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
+This API call produces the following media types according to the Accept
+request header; the media type will be conveyed by the Content-Type
+response header.
 
-  <h2><a name="__Models">Models</a></h2>
-  [ Jump to <a href="#__Methods">Methods</a> ]
+-   `application/json`
 
-  <h3>Table of Contents</h3>
-  <ol>
-    <li><a href="#Message"><code>Message</code></a></li>
-    <li><a href="#User"><code>User</code></a></li>
-  </ol>
+### Responses {.field-label}
 
-  <div class="model">
-    <h3><a name="Message"><code>Message</code></a> <a class="up" href="#__Models">Up</a></h3>
-    
-    <div class="field-items">
-      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">creator_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">date (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
-<div class="param">text (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">tags (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="User"><code>User</code></a> <a class="up" href="#__Models">Up</a></h3>
-    
-    <div class="field-items">
-      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-<div class="param">name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">count_messages (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
-    </div>  <!-- field-items -->
-  </div>
-  </body>
-</html>
+#### 200 {.field-label}
+
+Об'єкт користувача [User](#User)
+
+#### 400 {.field-label}
+
+Bad data [](#)
+
+#### 401 {.field-label}
+
+Unauthorized [](#)
+
+#### 406 {.field-label}
+
+Not Acceptable [](#)
+
+* * * * *
+
+Models
+------
+
+[ Jump to [Methods](#__Methods) ]
+
+### Table of Contents
+
+1.  [`Message`](#Message)
+2.  [`User`](#User)
+
+### `Message` [Up](#__Models)
+
+id (optional)
+
+[Long](#long) format: int64
+
+creator\_id (optional)
+
+[Long](#long) format: int64
+
+date (optional)
+
+[Date](#DateTime) format: date-time
+
+text (optional)
+
+[String](#string)
+
+tags (optional)
+
+[String](#string)
+
+### `User` [Up](#__Models)
+
+id (optional)
+
+[Long](#long) format: int64
+
+name (optional)
+
+[String](#string)
+
+count\_messages (optional)
+
+[Long](#long) format: int64
